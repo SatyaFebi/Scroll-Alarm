@@ -39,7 +39,7 @@ A productivity tool designed to stop your doom-scrolling habit. Using real-time 
 
 Simply run the main script:
 ```bash
-python main.py
+python app.py
 ```
 
 - Press **'q'** on the camera feed window to quit the application.
@@ -53,13 +53,13 @@ python main.py
 │   └── memes/         # Store your alarm sound and meme images here
 │       ├── alarm.mp3
 │       └── ...
-├── main.py            # Core application logic
+├── app.py            # Core application logic
 ├── requirements.txt   # Python dependencies
 └── efficientdet_lite0.tflite (auto-downloaded)
 ```
 
 ## ⚙️ Configuration
-You can tweak settings in `main.py` under the `--- CONFIGURATION ---` section:
+You can tweak settings in `app.py` under the `--- CONFIGURATION ---` section:
 - `CONFIDENCE_THRESHOLD`: Time in seconds before the alarm triggers (default: 2.0).
 - `MODEL_PATH`: Change the TFLite model used.
 - `MEMES_DIR`: Path to your meme images folder.
