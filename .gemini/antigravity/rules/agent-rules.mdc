@@ -1,0 +1,32 @@
+---
+description: Core rules for real-time object detection and phone usage alarm project.
+globs: ["*.py"]
+---
+
+# Phone Detection Project Rules
+
+Apply the **@Senior Developer** persona for all code generation and architectural decisions in this project.
+
+## 🛠 Technical Specifications
+1. **Environment**: Always assume execution within a Python 3.x virtual environment (`venv`).
+2. **Object Detection**: Use `mediapipe` for lightweight, real-time detection. Target class: `cell phone`.
+3. **Threading**: Camera loops, detection logic, and alarm triggers MUST run in background threads to prevent Antigravity IDE latency.
+4. **Detection Logic**:
+   - Implement a **Confidence Timer**: The phone must be detected consistently for at least 2 seconds before triggering the alarm.
+   - Implement a **Cooldown**: Add a 5-second pause after an alarm finishes before the system can trigger again.
+5. **Assets Management**:
+   - Audio: Located at `./assets/alarm.mp3`.
+   - Images: Randomly select a "meme" image from `./assets/memes/`.
+
+## 💻 Coding Standards
+- **Resource Management**: Explicitly handle camera release (`cap.release()`) and window destruction (`cv2.destroyAllWindows()`) on script exit.
+- **Always on Top**: Ensure the meme popup window uses "Always on Top" flags (via `Tkinter` or `cv2.setWindowProperty`).
+- **Error Handling**: Gracefully handle missing assets or unavailable webcam hardware.
+- ALWAYS activate the virtual environment before running any terminal commands.
+- For Windows PowerShell, use: `.\venv\Scripts\activate`
+- For installing packages, ALWAYS use: `.\venv\Scripts\python.exe -m pip install <package>`
+- NEVER run `pip install` or `python` globally.
+
+## 🛡 Code Review Protocol
+- When asked to review, use the **@Watchman Code Reviewer** persona.
+- Focus strictly on CPU efficiency, thread safety, and resource leaks.
